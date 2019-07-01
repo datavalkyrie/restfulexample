@@ -1,0 +1,55 @@
+{
+  "type" : "record",
+  "name" : "OEMVehicleDataAvro",
+  "namespace" : "com.datawhisperers.restfulexample.avromodel",
+  "fields" : [ {
+    "name" : "accuracy",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "activityType",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "direction",
+    "type" : {
+      "type" : "int",
+      "java-class" : "java.lang.Integer"
+    }
+  }, {
+    "name" : "id",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "position",
+    "type" : [ "null", {
+      "type" : "record",
+      "name" : "PositionAvro",
+      "fields" : [ {
+        "name" : "lat",
+        "type" : [ "null", {
+          "type" : "string",
+          "java-class" : "java.math.BigDecimal"
+        } ]
+      }, {
+        "name" : "lon",
+        "type" : [ "null", {
+          "type" : "string",
+          "java-class" : "java.math.BigDecimal"
+        } ]
+      } ]
+    } ]
+  }, {
+    "name" : "speed",
+    "type" : {
+      "type" : "double",
+      "java-class" : "java.lang.Double"
+    }
+  }, {
+    "name" : "timestampEpoch",
+    "type" : [ "null", {
+      "type" : "int",
+      "java-class" : "java.lang.Integer"
+    } ]
+  }, {
+    "name" : "vehicleType",
+    "type" : [ "null", "string" ]
+  } ]
+}
