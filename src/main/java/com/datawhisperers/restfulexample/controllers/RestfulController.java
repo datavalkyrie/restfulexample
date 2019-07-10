@@ -31,6 +31,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.kafka.support.serializer.JsonSerializer;
 
 @RestController
 @RequestMapping("/restful-test")
@@ -85,15 +86,37 @@ public class RestfulController {
         LOG.info("RestfulController.postOEMVehicleData() Start: " + starttime);
         LOG.info("oemVehicleDataArray size: " + oemVehicleDataArray.length);
 
+        for (OEMVehicleData oemVehicleData : oemVehicleDataArray) {
+            UUID uuid = UUID.randomUUID();
+            oemVehicleData.setId(uuid.toString());
+            LOG.info("oemVehicleData:" + oemVehicleData);
+        }
+
+        //sendOEMVehicleData(oemVehicleDataArray);
+        for (OEMVehicleData oemVehicleData : oemVehicleDataArray) {
+            LOG.info("oemVehicleData:" + oemVehicleData);
+        }
+
+        long endtime = System.currentTimeMillis() - starttime;
+        LOG.info("RestfulController.postOEMVehicleData() End: " + endtime);
+        //return "";
+    }
+
+    private void sendOEMVehicleData(OEMVehicleData[] oemVehicleDataArray) {
+        long starttime = System.currentTimeMillis();
+        LOG.info("RestfulController.sendOEMVehicleData() Start: " + starttime);
+        LOG.info("oemVehicleDataArray size: " + oemVehicleDataArray.length);
+
         final Properties props = new Properties();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.put(ProducerConfig.ACKS_CONFIG, "all");
         props.put(ProducerConfig.RETRIES_CONFIG, 0);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class);
-        props.put(AbstractKafkaAvroSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, "http://localhost:8081");
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+        //props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class);
+        //props.put(AbstractKafkaAvroSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, "http://localhost:8081");
 
-        try (KafkaProducer<String, OEMVehicleDataAvro> producer = new KafkaProducer<String, OEMVehicleDataAvro>(props)) {
+        try (KafkaProducer<String, OEMVehicleData> producer = new KafkaProducer<String, OEMVehicleData>(props)) {
             for (OEMVehicleData oemVehicleData : oemVehicleDataArray) {
                 LOG.info("oemVehicleData:" + oemVehicleData);
                 UUID uuid = UUID.randomUUID();
@@ -112,7 +135,7 @@ public class RestfulController {
                 oemVehicleDataAvro.setPosition(positionAvro);
 
                 LOG.info("oemVehicleDataAvro:" + oemVehicleDataAvro);
-                ProducerRecord<String, OEMVehicleDataAvro> record = new ProducerRecord<String, OEMVehicleDataAvro>("test-restful", oemVehicleDataAvro.getId().toString(), oemVehicleDataAvro);
+                ProducerRecord<String, OEMVehicleData> record = new ProducerRecord<String, OEMVehicleData>("test-restful", oemVehicleDataAvro.getId().toString(), oemVehicleData);
                 producer.send(record);
             }
             producer.flush();
@@ -120,12 +143,6 @@ public class RestfulController {
             e.printStackTrace();
         }
 
-        for (OEMVehicleData oemVehicleData : oemVehicleDataArray) {
-            LOG.info("oemVehicleData:" + oemVehicleData);
-        }
-        long endtime = System.currentTimeMillis() - starttime;
-        LOG.info("RestfulController.postOEMVehicleData() End: " + endtime);
-        //return "";
     }
 
 }
