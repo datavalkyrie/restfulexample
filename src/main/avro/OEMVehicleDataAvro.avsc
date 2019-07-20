@@ -10,10 +10,10 @@
     "type" : [ "null", "string" ]
   }, {
     "name" : "direction",
-    "type" : {
-      "type" : "int",
-      "java-class" : "java.lang.Integer"
-    }
+    "type" : [ "null", {
+          "type" : "string",
+          "java-class" : "java.math.BigDecimal"
+        } ]
   }, {
     "name" : "id",
     "type" : [ "null", "string" ]
@@ -38,10 +38,10 @@
     } ]
   }, {
     "name" : "speed",
-    "type" : {
-      "type" : "double",
-      "java-class" : "java.lang.Double"
-    }
+    "type" : [ "null", {
+          "type" : "string",
+          "java-class" : "java.math.BigDecimal"
+        } ]
   }, {
     "name" : "timestampEpoch",
     "type" : [ "null", {
@@ -50,6 +50,9 @@
     } ]
   }, {
     "name" : "vehicleType",
+    "type" : [ "null", "string" ]
+  } , {
+    "name" : "transportMode",
     "type" : [ "null", "string" ]
   } ]
 }
