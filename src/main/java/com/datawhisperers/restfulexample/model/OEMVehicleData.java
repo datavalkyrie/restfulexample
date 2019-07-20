@@ -5,6 +5,8 @@
  */
 package com.datawhisperers.restfulexample.model;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author steveo
@@ -15,11 +17,12 @@ public class OEMVehicleData {
     private String id;
     private Integer timestampEpoch;
     private Position position;
-    private double speed;
-    private int direction;
+    private BigDecimal speed;
+    private BigDecimal direction;
     private String vehicleType;
     private String accuracy;
     private String activityType;
+    private String transportMode;
 
     public String getId() {
         return id;
@@ -45,19 +48,19 @@ public class OEMVehicleData {
         this.position = position;
     }
 
-    public double getSpeed() {
+    public BigDecimal getSpeed() {
         return speed;
     }
 
-    public void setSpeed(double speed) {
+    public void setSpeed(BigDecimal speed) {
         this.speed = speed;
     }
 
-    public int getDirection() {
+    public BigDecimal getDirection() {
         return direction;
     }
 
-    public void setDirection(int direction) {
+    public void setDirection(BigDecimal direction) {
         this.direction = direction;
     }
 
@@ -85,10 +88,20 @@ public class OEMVehicleData {
         this.activityType = activityType;
     }
 
+    public String getTransportMode() {
+        return transportMode;
+    }
+
+    public void setTransportMode(String transportMode) {
+        this.transportMode = transportMode;
+    }
+
     @Override
     public String toString() {
-        return "OEMVehicleData{" + "id=" + id + ", timestampEpoch=" + timestampEpoch + ", position=" + position + ", speed=" + speed + ", direction=" + direction + ", vehicleType=" + vehicleType + ", accuracy=" + accuracy + ", activityType=" + activityType + '}';
+        return "OEMVehicleData{" + "id=" + id + ", timestampEpoch=" + timestampEpoch + ", position=" + position + ", speed=" + speed + ", direction=" + direction + ", vehicleType=" + vehicleType + ", accuracy=" + accuracy + ", activityType=" + activityType + ", transportMode=" + transportMode + '}';
     }
+
+
     
     
 }
