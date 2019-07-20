@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
-import io.confluent.kafka.serializers.KafkaAvroSerializer;
+//import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
+// import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.SwaggerDefinition;
+import io.swagger.annotations.Tag;
 import java.util.Properties;
 import java.util.UUID;
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -28,14 +30,15 @@ import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.kafka.support.serializer.JsonSerializer;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.kafka.support.serializer.JsonSerializer;
 
 @RestController
 @RequestMapping("/restful-test")
-@Api(value = "db connection rest", description = "Operations pertaining to products in Online Store")
+@Api(value = "My Swagger Resource")
+@SwaggerDefinition(tags = { @Tag(name = "My Swagger Resource", description = "Meaningful stuff in here") })
 public class RestfulController {
 
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(RestfulController.class);
@@ -92,7 +95,7 @@ public class RestfulController {
             LOG.info("oemVehicleData:" + oemVehicleData);
         }
 
-        //sendOEMVehicleData(oemVehicleDataArray);
+        sendOEMVehicleData(oemVehicleDataArray);
         for (OEMVehicleData oemVehicleData : oemVehicleDataArray) {
             LOG.info("oemVehicleData:" + oemVehicleData);
         }
@@ -102,6 +105,7 @@ public class RestfulController {
         //return "";
     }
 
+    
     private void sendOEMVehicleData(OEMVehicleData[] oemVehicleDataArray) {
         long starttime = System.currentTimeMillis();
         LOG.info("RestfulController.sendOEMVehicleData() Start: " + starttime);
@@ -130,19 +134,22 @@ public class RestfulController {
                 oemVehicleDataAvro.setSpeed(oemVehicleData.getSpeed());
                 oemVehicleDataAvro.setTimestampEpoch(oemVehicleData.getTimestampEpoch());
                 oemVehicleDataAvro.setVehicleType(oemVehicleData.getVehicleType());
+                oemVehicleDataAvro.setTransportMode(oemVehicleData.getTransportMode());
                 positionAvro.setLat(oemVehicleData.getPosition().getLat());
                 positionAvro.setLon(oemVehicleData.getPosition().getLon());
                 oemVehicleDataAvro.setPosition(positionAvro);
 
                 LOG.info("oemVehicleDataAvro:" + oemVehicleDataAvro);
-                ProducerRecord<String, OEMVehicleData> record = new ProducerRecord<String, OEMVehicleData>("test-restful", oemVehicleDataAvro.getId().toString(), oemVehicleData);
+                ProducerRecord<String, OEMVehicleData> record = new ProducerRecord<>("test-restful", oemVehicleDataAvro.getId().toString(), oemVehicleData);
                 producer.send(record);
             }
             producer.flush();
         } catch (final SerializationException e) {
             e.printStackTrace();
+            
         }
 
     }
+
 
 }
