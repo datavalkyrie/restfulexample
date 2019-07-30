@@ -32,7 +32,7 @@ public class CustomizedResponseEntityExceptionHandler {
         long starttime = System.currentTimeMillis();
         LOG.info("RestfulController.handleAllExceptions() Start: " + starttime);
         LOG.info("RestfulController.handleAllExceptions() Error: " + ex.getMessage());
-        ex.printStackTrace();
+        LOG.error("RestfulController.handleAllExceptions() Error: ", ex);
         ErrorDetails errorDetails = new ErrorDetails(new Date(), "We got an error!",
                 request.getDescription(false), HttpStatus.BAD_REQUEST.value());
         
