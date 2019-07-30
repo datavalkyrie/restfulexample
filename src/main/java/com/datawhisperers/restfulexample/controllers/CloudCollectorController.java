@@ -36,18 +36,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @RestController
-@RequestMapping("/restful-test")
+@RequestMapping("/v1/cloud-collector")
 @Api(value = "My Swagger Resource")
 @SwaggerDefinition(tags = { @Tag(name = "My Swagger Resource", description = "Meaningful stuff in here") })
-public class RestfulController {
+public class CloudCollectorController {
 
-    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(RestfulController.class);
+    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(CloudCollectorController.class);
 
     @Autowired
     //GenericDataService genericDataService;
 
     GsonBuilder gsonBuilder = new GsonBuilder();
 
+    /*
     //@GetMapping("test/{name}")
     @RequestMapping(method = RequestMethod.GET, path = "test/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
     public String helloThere(@PathVariable String name,
@@ -81,12 +82,13 @@ public class RestfulController {
         LOG.info("RestfulController.postCarData() End: " + endtime);
         //return "";OEMVehicleData
     }
+*/
 
-    @RequestMapping(method = RequestMethod.POST, path = "oemVehicleData/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public void postOEMVehicleData(@RequestBody OEMVehicleData[] oemVehicleDataArray) {
+    @RequestMapping(method = RequestMethod.POST, path = "addVehicleStatus/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public void addVehicleStatus(@RequestBody OEMVehicleData[] oemVehicleDataArray) {
 
         long starttime = System.currentTimeMillis();
-        LOG.info("RestfulController.postOEMVehicleData() Start: " + starttime);
+        LOG.info("CloudCollectorController.addVehicleStatus() Start: " + starttime);
         LOG.info("oemVehicleDataArray size: " + oemVehicleDataArray.length);
 
         for (OEMVehicleData oemVehicleData : oemVehicleDataArray) {
@@ -95,20 +97,21 @@ public class RestfulController {
             LOG.info("oemVehicleData:" + oemVehicleData);
         }
 
-        sendOEMVehicleData(oemVehicleDataArray);
+        sendVehicleStatusData(oemVehicleDataArray);
         for (OEMVehicleData oemVehicleData : oemVehicleDataArray) {
             LOG.info("oemVehicleData:" + oemVehicleData);
         }
 
         long endtime = System.currentTimeMillis() - starttime;
-        LOG.info("RestfulController.postOEMVehicleData() End: " + endtime);
+        LOG.info("CloudCollectorController.addVehicleStatus() End: " + endtime);
         //return "";
+        
     }
 
     
-    private void sendOEMVehicleData(OEMVehicleData[] oemVehicleDataArray) {
+    private void sendVehicleStatusData(OEMVehicleData[] oemVehicleDataArray) {
         long starttime = System.currentTimeMillis();
-        LOG.info("RestfulController.sendOEMVehicleData() Start: " + starttime);
+        LOG.info("CloudCollectorController.sendOEMVehicleData() Start: " + starttime);
         LOG.info("oemVehicleDataArray size: " + oemVehicleDataArray.length);
 
         final Properties props = new Properties();
@@ -140,12 +143,12 @@ public class RestfulController {
                 oemVehicleDataAvro.setPosition(positionAvro);
 
                 LOG.info("oemVehicleDataAvro:" + oemVehicleDataAvro);
-                ProducerRecord<String, OEMVehicleData> record = new ProducerRecord<>("test-restful", oemVehicleDataAvro.getId().toString(), oemVehicleData);
+                ProducerRecord<String, OEMVehicleData> record = new ProducerRecord<>("vehicle-status-data", oemVehicleDataAvro.getId().toString(), oemVehicleData);
                 producer.send(record);
             }
             producer.flush();
         } catch (final SerializationException e) {
-            e.printStackTrace();
+            LOG.debug("CloudCollectorController.sendOEMVehicleData() Error: ", e);
             
         }
 
