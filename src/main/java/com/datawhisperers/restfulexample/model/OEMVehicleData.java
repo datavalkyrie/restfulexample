@@ -12,17 +12,17 @@ import java.math.BigDecimal;
  * @author steveo
  */
 public class OEMVehicleData {
-    
-    
+
     private String id;
-    private Integer timestampEpoch;
-    private Position position;
-    private BigDecimal speed;
-    private BigDecimal direction;
+    private TimestampEpoch timestampEpoch;
+    private GPS gps;
+    private Speed speed;
+    private Direction direction;
     private String vehicleType;
-    private String accuracy;
     private String activityType;
     private String transportMode;
+    private InstrumentPanel instrumentPanel;
+    private String fuleType;
 
     public String getId() {
         return id;
@@ -32,35 +32,35 @@ public class OEMVehicleData {
         this.id = id;
     }
 
-    public Integer getTimestampEpoch() {
+    public TimestampEpoch getTimestampEpoch() {
         return timestampEpoch;
     }
 
-    public void setTimestampEpoch(Integer timestampEpoch) {
+    public void setTimestampEpoch(TimestampEpoch timestampEpoch) {
         this.timestampEpoch = timestampEpoch;
     }
 
-    public Position getPosition() {
-        return position;
+    public GPS getGps() {
+        return gps;
     }
 
-    public void setPosition(Position position) {
-        this.position = position;
+    public void setGps(GPS gps) {
+        this.gps = gps;
     }
 
-    public BigDecimal getSpeed() {
+    public Speed getSpeed() {
         return speed;
     }
 
-    public void setSpeed(BigDecimal speed) {
+    public void setSpeed(Speed speed) {
         this.speed = speed;
     }
 
-    public BigDecimal getDirection() {
+    public Direction getDirection() {
         return direction;
     }
 
-    public void setDirection(BigDecimal direction) {
+    public void setDirection(Direction direction) {
         this.direction = direction;
     }
 
@@ -70,14 +70,6 @@ public class OEMVehicleData {
 
     public void setVehicleType(String vehicleType) {
         this.vehicleType = vehicleType;
-    }
-
-    public String getAccuracy() {
-        return accuracy;
-    }
-
-    public void setAccuracy(String accuracy) {
-        this.accuracy = accuracy;
     }
 
     public String getActivityType() {
@@ -96,12 +88,25 @@ public class OEMVehicleData {
         this.transportMode = transportMode;
     }
 
-    @Override
-    public String toString() {
-        return "OEMVehicleData{" + "id=" + id + ", timestampEpoch=" + timestampEpoch + ", position=" + position + ", speed=" + speed + ", direction=" + direction + ", vehicleType=" + vehicleType + ", accuracy=" + accuracy + ", activityType=" + activityType + ", transportMode=" + transportMode + '}';
+    public InstrumentPanel getInstrumentPanel() {
+        return instrumentPanel;
     }
 
+    public void setInstrumentPanel(InstrumentPanel instrumentPanel) {
+        this.instrumentPanel = instrumentPanel;
+    }
 
-    
-    
+    public String getFuleType() {
+        return fuleType;
+    }
+
+    public void setFuleType(String fuleType) {
+        this.fuleType = fuleType;
+    }
+
+    @Override
+    public String toString() {
+        return "OEMVehicleData{" + "id=" + id + ", timestampEpoch=" + timestampEpoch + ", gps=" + gps + ", speed=" + speed + ", direction=" + direction + ", vehicleType=" + vehicleType + ", activityType=" + activityType + ", transportMode=" + transportMode + ", instrumentPanel=" + instrumentPanel + ", fuleType=" + fuleType + '}';
+    }
+
 }

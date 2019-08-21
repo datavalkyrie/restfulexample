@@ -12,9 +12,10 @@ import java.math.BigDecimal;
  * @author steveo
  */
 public class Position {
-    
+
     private BigDecimal lat;
     private BigDecimal lon;
+    private Integer numberOfSatellitesAcquired;
 
     public BigDecimal getLat() {
         return lat;
@@ -32,11 +33,17 @@ public class Position {
         this.lon = lon;
     }
 
+    public Integer getNumberOfSatellitesAcquired() {
+        return numberOfSatellitesAcquired;
+    }
+
+    public void setNumberOfSatellitesAcquired(Integer numberOfSatellitesAcquired) {
+        this.numberOfSatellitesAcquired = numberOfSatellitesAcquired;
+    }
+
     @Override
     public String toString() {
-        return "Position{" + "lat=" + lat + ", lon=" + lon + '}';
+        return "Position{" + "lat=" + lat + ", lon=" + lon + ", numberOfSatellitesAcquired=" + numberOfSatellitesAcquired + '}';
     }
-    
-    
-    
+
 }
