@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class PositionAvro extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 1438785434573852484L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PositionAvro\",\"namespace\":\"com.datawhisperers.restfulexample.avromodel\",\"fields\":[{\"name\":\"lat\",\"type\":[\"null\",{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}]},{\"name\":\"lon\",\"type\":[\"null\",{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}]}]}");
+  private static final long serialVersionUID = 5490538529599587913L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PositionAvro\",\"namespace\":\"com.datawhisperers.restfulexample.avromodel\",\"fields\":[{\"name\":\"lat\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"lon\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"numberOfSatellitesAcquired\",\"type\":\"int\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -76,6 +76,7 @@ static {
 
   @Deprecated public java.math.BigDecimal lat;
   @Deprecated public java.math.BigDecimal lon;
+  @Deprecated public int numberOfSatellitesAcquired;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -88,10 +89,12 @@ static {
    * All-args constructor.
    * @param lat The new value for lat
    * @param lon The new value for lon
+   * @param numberOfSatellitesAcquired The new value for numberOfSatellitesAcquired
    */
-  public PositionAvro(java.math.BigDecimal lat, java.math.BigDecimal lon) {
+  public PositionAvro(java.math.BigDecimal lat, java.math.BigDecimal lon, java.lang.Integer numberOfSatellitesAcquired) {
     this.lat = lat;
     this.lon = lon;
+    this.numberOfSatellitesAcquired = numberOfSatellitesAcquired;
   }
 
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
@@ -101,6 +104,7 @@ static {
     switch (field$) {
     case 0: return lat;
     case 1: return lon;
+    case 2: return numberOfSatellitesAcquired;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -111,6 +115,7 @@ static {
     switch (field$) {
     case 0: lat = (java.math.BigDecimal)value$; break;
     case 1: lon = (java.math.BigDecimal)value$; break;
+    case 2: numberOfSatellitesAcquired = (java.lang.Integer)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -147,6 +152,23 @@ static {
    */
   public void setLon(java.math.BigDecimal value) {
     this.lon = value;
+  }
+
+  /**
+   * Gets the value of the 'numberOfSatellitesAcquired' field.
+   * @return The value of the 'numberOfSatellitesAcquired' field.
+   */
+  public int getNumberOfSatellitesAcquired() {
+    return numberOfSatellitesAcquired;
+  }
+
+
+  /**
+   * Sets the value of the 'numberOfSatellitesAcquired' field.
+   * @param value the value to set.
+   */
+  public void setNumberOfSatellitesAcquired(int value) {
+    this.numberOfSatellitesAcquired = value;
   }
 
   /**
@@ -191,6 +213,7 @@ static {
 
     private java.math.BigDecimal lat;
     private java.math.BigDecimal lon;
+    private int numberOfSatellitesAcquired;
 
     /** Creates a new Builder */
     private Builder() {
@@ -211,6 +234,10 @@ static {
         this.lon = data().deepCopy(fields()[1].schema(), other.lon);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
+      if (isValidValue(fields()[2], other.numberOfSatellitesAcquired)) {
+        this.numberOfSatellitesAcquired = data().deepCopy(fields()[2].schema(), other.numberOfSatellitesAcquired);
+        fieldSetFlags()[2] = other.fieldSetFlags()[2];
+      }
     }
 
     /**
@@ -226,6 +253,10 @@ static {
       if (isValidValue(fields()[1], other.lon)) {
         this.lon = data().deepCopy(fields()[1].schema(), other.lon);
         fieldSetFlags()[1] = true;
+      }
+      if (isValidValue(fields()[2], other.numberOfSatellitesAcquired)) {
+        this.numberOfSatellitesAcquired = data().deepCopy(fields()[2].schema(), other.numberOfSatellitesAcquired);
+        fieldSetFlags()[2] = true;
       }
     }
 
@@ -309,6 +340,45 @@ static {
       return this;
     }
 
+    /**
+      * Gets the value of the 'numberOfSatellitesAcquired' field.
+      * @return The value.
+      */
+    public int getNumberOfSatellitesAcquired() {
+      return numberOfSatellitesAcquired;
+    }
+
+
+    /**
+      * Sets the value of the 'numberOfSatellitesAcquired' field.
+      * @param value The value of 'numberOfSatellitesAcquired'.
+      * @return This builder.
+      */
+    public com.datawhisperers.restfulexample.avromodel.PositionAvro.Builder setNumberOfSatellitesAcquired(int value) {
+      validate(fields()[2], value);
+      this.numberOfSatellitesAcquired = value;
+      fieldSetFlags()[2] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'numberOfSatellitesAcquired' field has been set.
+      * @return True if the 'numberOfSatellitesAcquired' field has been set, false otherwise.
+      */
+    public boolean hasNumberOfSatellitesAcquired() {
+      return fieldSetFlags()[2];
+    }
+
+
+    /**
+      * Clears the value of the 'numberOfSatellitesAcquired' field.
+      * @return This builder.
+      */
+    public com.datawhisperers.restfulexample.avromodel.PositionAvro.Builder clearNumberOfSatellitesAcquired() {
+      fieldSetFlags()[2] = false;
+      return this;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public PositionAvro build() {
@@ -316,6 +386,7 @@ static {
         PositionAvro record = new PositionAvro();
         record.lat = fieldSetFlags()[0] ? this.lat : (java.math.BigDecimal) defaultValue(fields()[0]);
         record.lon = fieldSetFlags()[1] ? this.lon : (java.math.BigDecimal) defaultValue(fields()[1]);
+        record.numberOfSatellitesAcquired = fieldSetFlags()[2] ? this.numberOfSatellitesAcquired : (java.lang.Integer) defaultValue(fields()[2]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -348,21 +419,11 @@ static {
   @Override public void customEncode(org.apache.avro.io.Encoder out)
     throws java.io.IOException
   {
-    if (this.lat == null) {
-      out.writeIndex(0);
-      out.writeNull();
-    } else {
-      out.writeIndex(1);
-      out.writeString(this.lat.toString());
-    }
+    out.writeString(this.lat.toString());
 
-    if (this.lon == null) {
-      out.writeIndex(0);
-      out.writeNull();
-    } else {
-      out.writeIndex(1);
-      out.writeString(this.lon.toString());
-    }
+    out.writeString(this.lon.toString());
+
+    out.writeInt(this.numberOfSatellitesAcquired);
 
   }
 
@@ -371,39 +432,25 @@ static {
   {
     org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
     if (fieldOrder == null) {
-      if (in.readIndex() != 1) {
-        in.readNull();
-        this.lat = null;
-      } else {
-        this.lat = new java.math.BigDecimal(in.readString());
-      }
+      this.lat = new java.math.BigDecimal(in.readString());
 
-      if (in.readIndex() != 1) {
-        in.readNull();
-        this.lon = null;
-      } else {
-        this.lon = new java.math.BigDecimal(in.readString());
-      }
+      this.lon = new java.math.BigDecimal(in.readString());
+
+      this.numberOfSatellitesAcquired = in.readInt();
 
     } else {
-      for (int i = 0; i < 2; i++) {
+      for (int i = 0; i < 3; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
-          if (in.readIndex() != 1) {
-            in.readNull();
-            this.lat = null;
-          } else {
-            this.lat = new java.math.BigDecimal(in.readString());
-          }
+          this.lat = new java.math.BigDecimal(in.readString());
           break;
 
         case 1:
-          if (in.readIndex() != 1) {
-            in.readNull();
-            this.lon = null;
-          } else {
-            this.lon = new java.math.BigDecimal(in.readString());
-          }
+          this.lon = new java.math.BigDecimal(in.readString());
+          break;
+
+        case 2:
+          this.numberOfSatellitesAcquired = in.readInt();
           break;
 
         default:

@@ -3,56 +3,169 @@
   "name" : "OEMVehicleDataAvro",
   "namespace" : "com.datawhisperers.restfulexample.avromodel",
   "fields" : [ {
-    "name" : "accuracy",
-    "type" : [ "null", "string" ]
-  }, {
-    "name" : "activityType",
-    "type" : [ "null", "string" ]
-  }, {
-    "name" : "direction",
-    "type" : [ "null", {
-          "type" : "string",
-          "java-class" : "java.math.BigDecimal"
-        } ]
-  }, {
     "name" : "id",
-    "type" : [ "null", "string" ]
-  }, {
-    "name" : "position",
-    "type" : [ "null", {
-      "type" : "record",
-      "name" : "PositionAvro",
-      "fields" : [ {
-        "name" : "lat",
-        "type" : [ "null", {
-          "type" : "string",
-          "java-class" : "java.math.BigDecimal"
-        } ]
-      }, {
-        "name" : "lon",
-        "type" : [ "null", {
-          "type" : "string",
-          "java-class" : "java.math.BigDecimal"
-        } ]
-      } ]
-    } ]
-  }, {
-    "name" : "speed",
-    "type" : [ "null", {
-          "type" : "string",
-          "java-class" : "java.math.BigDecimal"
-        } ]
+    "type" : "string"
   }, {
     "name" : "timestampEpoch",
-    "type" : [ "null", {
-      "type" : "int",
-      "java-class" : "java.lang.Integer"
-    } ]
+    "type" : {
+      "type" : "record",
+      "name" : "TimestampEpochAvro",
+      "fields" : [ {
+        "name" : "car",
+        "type" : "long"
+      }, {
+        "name" : "gps",
+        "type" : "long"
+      }, {
+        "name" : "received",
+        "type" : "long"
+      } ]
+    }
+  }, {
+    "name" : "gps",
+    "type" : {
+      "type" : "record",
+      "name" : "GPSAvro",
+      "fields" : [ {
+        "name" : "gpsRawPosition",
+        "type" : {
+          "type" : "record",
+          "name" : "PositionAvro",
+          "fields" : [ {
+            "name" : "lat",
+            "type" : {
+              "type" : "string",
+              "java-class" : "java.math.BigDecimal"
+            }
+          }, {
+            "name" : "lon",
+            "type" : {
+              "type" : "string",
+              "java-class" : "java.math.BigDecimal"
+            }
+          }, {
+            "name" : "numberOfSatellitesAcquired",
+            "type" : "int"
+          } ]
+        }
+      }, {
+        "name" : "gpsMapMatchPosition",
+        "type" : "PositionAvro"
+      } ]
+    }
+  }, {
+    "name" : "speed",
+    "type" : {
+      "type" : "record",
+      "name" : "SpeedAvro",
+      "fields" : [ {
+        "name" : "engine",
+        "type" : {
+          "type" : "string",
+          "java-class" : "java.math.BigDecimal"
+        }
+      }, {
+        "name" : "wheels",
+        "type" : {
+          "type" : "record",
+          "name" : "WheelsAvro",
+          "fields" : [ {
+            "name" : "frontRight",
+            "type" : {
+              "type" : "string",
+              "java-class" : "java.math.BigDecimal"
+            }
+          }, {
+            "name" : "frontLeft",
+            "type" : {
+              "type" : "string",
+              "java-class" : "java.math.BigDecimal"
+            }
+          }, {
+            "name" : "backRight",
+            "type" : {
+              "type" : "string",
+              "java-class" : "java.math.BigDecimal"
+            }
+          }, {
+            "name" : "backLeft",
+            "type" : {
+              "type" : "string",
+              "java-class" : "java.math.BigDecimal"
+            }
+          } ]
+        }
+      }, {
+        "name" : "gps",
+        "type" : {
+          "type" : "string",
+          "java-class" : "java.math.BigDecimal"
+        }
+      }, {
+        "name" : "acceleration",
+        "type" : {
+          "type" : "string",
+          "java-class" : "java.math.BigDecimal"
+        }
+      }, {
+        "name" : "deceleration",
+        "type" : {
+          "type" : "string",
+          "java-class" : "java.math.BigDecimal"
+        }
+      } ]
+    }
+  }, {
+    "name" : "direction",
+    "type" : {
+      "type" : "record",
+      "name" : "DirectionAvro",
+      "fields" : [ {
+        "name" : "trueNorth",
+        "type" : {
+          "type" : "string",
+          "java-class" : "java.math.BigDecimal"
+        }
+      }, {
+        "name" : "magneticNorth",
+        "type" : {
+          "type" : "string",
+          "java-class" : "java.math.BigDecimal"
+        }
+      } ]
+    }
   }, {
     "name" : "vehicleType",
-    "type" : [ "null", "string" ]
-  } , {
+    "type" : "string"
+  }, {
+    "name" : "activityType",
+    "type" : "string"
+  }, {
     "name" : "transportMode",
-    "type" : [ "null", "string" ]
+    "type" : "string"
+  }, {
+    "name" : "fuleType",
+    "type" : "string"
+  }, {   "name" : "instrumentPanel",
+    "type" : {
+      "type" : "record",
+      "name" : "InstrumentPanelAvro",
+      "fields" : [ {
+        "name" : "turnSignal",
+        "type" : "string"
+      }, {
+        "name" : "wipers",
+        "type" : "boolean"
+      }, {
+        "name" : "lights",
+        "type" : "string"
+      }, {
+        "name" : "seatBeltCount",
+        "type" : "int"
+      }, {
+        "name" : "outsideTemp",
+        "type" : "double"
+      } ]
+    }
   } ]
 }

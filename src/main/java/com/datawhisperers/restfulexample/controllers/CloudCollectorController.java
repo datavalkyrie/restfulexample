@@ -5,18 +5,16 @@
  */
 package com.datawhisperers.restfulexample.controllers;
 
+import com.datawhisperers.restfulexample.avromodel.DirectionAvro;
+import com.datawhisperers.restfulexample.avromodel.GPSAvro;
 import com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro;
 import com.datawhisperers.restfulexample.avromodel.PositionAvro;
-import com.datawhisperers.restfulexample.model.Car;
-import com.datawhisperers.restfulexample.model.Hello;
+import com.datawhisperers.restfulexample.avromodel.SpeedAvro;
+import com.datawhisperers.restfulexample.avromodel.TimestampEpochAvro;
+import com.datawhisperers.restfulexample.avromodel.WheelsAvro;
+import com.datawhisperers.restfulexample.dataaccess.OEMVehicleDataDAOImpl;
 import com.datawhisperers.restfulexample.model.OEMVehicleData;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-//import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
-// import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.SwaggerDefinition;
 import io.swagger.annotations.Tag;
@@ -44,45 +42,7 @@ public class CloudCollectorController {
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(CloudCollectorController.class);
 
     @Autowired
-    //GenericDataService genericDataService;
-
-    GsonBuilder gsonBuilder = new GsonBuilder();
-
-    /*
-    //@GetMapping("test/{name}")
-    @RequestMapping(method = RequestMethod.GET, path = "test/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String helloThere(@PathVariable String name,
-            @RequestParam(value = "location") String location) {
-
-        long starttime = System.currentTimeMillis();
-        LOG.info("RestfulController.helloThere() Start: " + starttime);
-
-        Hello hello = new Hello();
-        hello.setName(name);
-        hello.setLocation(location);
-
-        Gson gson = gsonBuilder.setPrettyPrinting().create();
-
-        long endtime = System.currentTimeMillis() - starttime;
-        LOG.info("RestfulController.helloThere() End: " + endtime);
-
-        return gson.toJson(hello);
-    }
-
-    @RequestMapping(method = RequestMethod.POST, path = "carData/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public void postCarData(@RequestBody Car[] cars) {
-
-        long starttime = System.currentTimeMillis();
-        LOG.info("RestfulController.postCarData() Start: " + starttime);
-
-        for (Car car : cars) {
-            LOG.info("car:" + car);
-        }
-        long endtime = System.currentTimeMillis() - starttime;
-        LOG.info("RestfulController.postCarData() End: " + endtime);
-        //return "";OEMVehicleData
-    }
-*/
+    OEMVehicleDataDAOImpl oemVehicleDataDAOImpl;
 
     @RequestMapping(method = RequestMethod.POST, path = "addVehicleStatus/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void addVehicleStatus(@RequestBody OEMVehicleData[] oemVehicleDataArray) {
@@ -94,13 +54,12 @@ public class CloudCollectorController {
         for (OEMVehicleData oemVehicleData : oemVehicleDataArray) {
             UUID uuid = UUID.randomUUID();
             oemVehicleData.setId(uuid.toString());
-            LOG.info("oemVehicleData:" + oemVehicleData);
+            oemVehicleData.getTimestampEpoch().setReceived(System.currentTimeMillis());
+            //LOG.info("oemVehicleData:" + oemVehicleData);
+            oemVehicleDataDAOImpl.addOEMVehicleData(oemVehicleData);
         }
 
-        sendVehicleStatusData(oemVehicleDataArray);
-        for (OEMVehicleData oemVehicleData : oemVehicleDataArray) {
-            LOG.info("oemVehicleData:" + oemVehicleData);
-        }
+        //sendVehicleStatusData(oemVehicleDataArray);
 
         long endtime = System.currentTimeMillis() - starttime;
         LOG.info("CloudCollectorController.addVehicleStatus() End: " + endtime);
@@ -123,27 +82,58 @@ public class CloudCollectorController {
         //props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class);
         //props.put(AbstractKafkaAvroSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, "http://localhost:8081");
 
-        try (KafkaProducer<String, OEMVehicleData> producer = new KafkaProducer<String, OEMVehicleData>(props)) {
+        try (KafkaProducer<String, OEMVehicleData> producer = new KafkaProducer<>(props)) {
             for (OEMVehicleData oemVehicleData : oemVehicleDataArray) {
-                LOG.info("oemVehicleData:" + oemVehicleData);
-                UUID uuid = UUID.randomUUID();
-                oemVehicleData.setId(uuid.toString());
+                //LOG.info("oemVehicleData:" + oemVehicleData);
+                
                 OEMVehicleDataAvro oemVehicleDataAvro = new OEMVehicleDataAvro();
-                PositionAvro positionAvro = new PositionAvro();
-                oemVehicleDataAvro.setAccuracy(oemVehicleData.getAccuracy());
-                oemVehicleDataAvro.setDirection(oemVehicleData.getDirection());
+                PositionAvro gpsRawPositionAvro = new PositionAvro();
+                PositionAvro gpsMapMatchPositionAvro = new PositionAvro();
+                DirectionAvro directionAvro = new DirectionAvro();
+                SpeedAvro speedAvro = new SpeedAvro();
+                WheelsAvro wheelsAvro = new WheelsAvro();
+                GPSAvro gpsAvro = new GPSAvro();
+                TimestampEpochAvro timestampEpochAvro = new TimestampEpochAvro();
+                
                 oemVehicleDataAvro.setActivityType(oemVehicleData.getActivityType());
                 oemVehicleDataAvro.setId(oemVehicleData.getId());
-                oemVehicleDataAvro.setSpeed(oemVehicleData.getSpeed());
-                oemVehicleDataAvro.setTimestampEpoch(oemVehicleData.getTimestampEpoch());
                 oemVehicleDataAvro.setVehicleType(oemVehicleData.getVehicleType());
                 oemVehicleDataAvro.setTransportMode(oemVehicleData.getTransportMode());
-                positionAvro.setLat(oemVehicleData.getPosition().getLat());
-                positionAvro.setLon(oemVehicleData.getPosition().getLon());
-                oemVehicleDataAvro.setPosition(positionAvro);
+                oemVehicleDataAvro.setFuleType(oemVehicleData.getFuleType());
+                
+                directionAvro.setMagneticNorth(oemVehicleData.getDirection().getMagneticNorth());
+                directionAvro.setTrueNorth(oemVehicleData.getDirection().getTrueNorth());
+                oemVehicleDataAvro.setDirection(directionAvro);
+                
+                speedAvro.setEngine(oemVehicleData.getSpeed().getEngine());
+                speedAvro.setGps(oemVehicleData.getSpeed().getGps());
+                wheelsAvro.setFrontRight(oemVehicleData.getSpeed().getWheels().getFrontRight());
+                wheelsAvro.setFrontLeft(oemVehicleData.getSpeed().getWheels().getFrontLeft());
+                wheelsAvro.setBackRight(oemVehicleData.getSpeed().getWheels().getBackRight());
+                wheelsAvro.setBackLeft(oemVehicleData.getSpeed().getWheels().getBackLeft());
+                speedAvro.setWheels(wheelsAvro);
+                oemVehicleDataAvro.setSpeed(speedAvro);
+                
+                timestampEpochAvro.setCar(oemVehicleData.getTimestampEpoch().getCar());
+                timestampEpochAvro.setGps(oemVehicleData.getTimestampEpoch().getGps());
+                timestampEpochAvro.setReceived(oemVehicleData.getTimestampEpoch().getReceived());
+                LOG.info("oemVehicleData.getTimestampEpoch(): " + oemVehicleData.getTimestampEpoch());
+                oemVehicleDataAvro.setTimestampEpoch(timestampEpochAvro);
+                
+                gpsRawPositionAvro.setLat(oemVehicleData.getGps().getGpsRawPosition().getLat());
+                gpsRawPositionAvro.setLon(oemVehicleData.getGps().getGpsRawPosition().getLon());
+                gpsRawPositionAvro.setNumberOfSatellitesAcquired(oemVehicleData.getGps().getGpsRawPosition().getNumberOfSatellitesAcquired());                
+                gpsAvro.setGpsRawPosition(gpsRawPositionAvro);
+                
+                gpsMapMatchPositionAvro.setLat(oemVehicleData.getGps().getGpsMapMatchPosition().getLat());
+                gpsMapMatchPositionAvro.setLon(oemVehicleData.getGps().getGpsMapMatchPosition().getLon());
+                gpsMapMatchPositionAvro.setNumberOfSatellitesAcquired(oemVehicleData.getGps().getGpsMapMatchPosition().getNumberOfSatellitesAcquired());                
+                gpsAvro.setGpsMapMatchPosition(gpsMapMatchPositionAvro);
+                oemVehicleDataAvro.setGps(gpsAvro);
 
                 LOG.info("oemVehicleDataAvro:" + oemVehicleDataAvro);
-                ProducerRecord<String, OEMVehicleData> record = new ProducerRecord<>("vehicle-status-data", oemVehicleDataAvro.getId().toString(), oemVehicleData);
+
+                ProducerRecord<String, OEMVehicleData> record = new ProducerRecord<>("vehicle-status-data", oemVehicleData.getId(), oemVehicleData);
                 producer.send(record);
             }
             producer.flush();
