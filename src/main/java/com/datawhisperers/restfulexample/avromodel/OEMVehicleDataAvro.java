@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class OEMVehicleDataAvro extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -4893580760730248252L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"OEMVehicleDataAvro\",\"namespace\":\"com.datawhisperers.restfulexample.avromodel\",\"fields\":[{\"name\":\"accuracy\",\"type\":[\"null\",\"string\"]},{\"name\":\"activityType\",\"type\":[\"null\",\"string\"]},{\"name\":\"direction\",\"type\":{\"type\":\"int\",\"java-class\":\"java.lang.Integer\"}},{\"name\":\"id\",\"type\":[\"null\",\"string\"]},{\"name\":\"position\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"PositionAvro\",\"fields\":[{\"name\":\"lat\",\"type\":[\"null\",{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}]},{\"name\":\"lon\",\"type\":[\"null\",{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}]}]}]},{\"name\":\"speed\",\"type\":{\"type\":\"double\",\"java-class\":\"java.lang.Double\"}},{\"name\":\"timestampEpoch\",\"type\":[\"null\",{\"type\":\"int\",\"java-class\":\"java.lang.Integer\"}]},{\"name\":\"vehicleType\",\"type\":[\"null\",\"string\"]}]}");
+  private static final long serialVersionUID = -5881820033739142909L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"OEMVehicleDataAvro\",\"namespace\":\"com.datawhisperers.restfulexample.avromodel\",\"fields\":[{\"name\":\"accuracy\",\"type\":[\"null\",\"string\"]},{\"name\":\"activityType\",\"type\":[\"null\",\"string\"]},{\"name\":\"direction\",\"type\":[\"null\",{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}]},{\"name\":\"id\",\"type\":[\"null\",\"string\"]},{\"name\":\"position\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"PositionAvro\",\"fields\":[{\"name\":\"lat\",\"type\":[\"null\",{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}]},{\"name\":\"lon\",\"type\":[\"null\",{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}]}]}]},{\"name\":\"speed\",\"type\":[\"null\",{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}]},{\"name\":\"timestampEpoch\",\"type\":[\"null\",{\"type\":\"int\",\"java-class\":\"java.lang.Integer\"}]},{\"name\":\"vehicleType\",\"type\":[\"null\",\"string\"]},{\"name\":\"transportMode\",\"type\":[\"null\",\"string\"]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -76,12 +76,13 @@ static {
 
   @Deprecated public java.lang.CharSequence accuracy;
   @Deprecated public java.lang.CharSequence activityType;
-  @Deprecated public int direction;
+  @Deprecated public java.math.BigDecimal direction;
   @Deprecated public java.lang.CharSequence id;
   @Deprecated public com.datawhisperers.restfulexample.avromodel.PositionAvro position;
-  @Deprecated public double speed;
+  @Deprecated public java.math.BigDecimal speed;
   @Deprecated public java.lang.Integer timestampEpoch;
   @Deprecated public java.lang.CharSequence vehicleType;
+  @Deprecated public java.lang.CharSequence transportMode;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -100,8 +101,9 @@ static {
    * @param speed The new value for speed
    * @param timestampEpoch The new value for timestampEpoch
    * @param vehicleType The new value for vehicleType
+   * @param transportMode The new value for transportMode
    */
-  public OEMVehicleDataAvro(java.lang.CharSequence accuracy, java.lang.CharSequence activityType, java.lang.Integer direction, java.lang.CharSequence id, com.datawhisperers.restfulexample.avromodel.PositionAvro position, java.lang.Double speed, java.lang.Integer timestampEpoch, java.lang.CharSequence vehicleType) {
+  public OEMVehicleDataAvro(java.lang.CharSequence accuracy, java.lang.CharSequence activityType, java.math.BigDecimal direction, java.lang.CharSequence id, com.datawhisperers.restfulexample.avromodel.PositionAvro position, java.math.BigDecimal speed, java.lang.Integer timestampEpoch, java.lang.CharSequence vehicleType, java.lang.CharSequence transportMode) {
     this.accuracy = accuracy;
     this.activityType = activityType;
     this.direction = direction;
@@ -110,6 +112,7 @@ static {
     this.speed = speed;
     this.timestampEpoch = timestampEpoch;
     this.vehicleType = vehicleType;
+    this.transportMode = transportMode;
   }
 
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
@@ -125,6 +128,7 @@ static {
     case 5: return speed;
     case 6: return timestampEpoch;
     case 7: return vehicleType;
+    case 8: return transportMode;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -135,12 +139,13 @@ static {
     switch (field$) {
     case 0: accuracy = (java.lang.CharSequence)value$; break;
     case 1: activityType = (java.lang.CharSequence)value$; break;
-    case 2: direction = (java.lang.Integer)value$; break;
+    case 2: direction = (java.math.BigDecimal)value$; break;
     case 3: id = (java.lang.CharSequence)value$; break;
     case 4: position = (com.datawhisperers.restfulexample.avromodel.PositionAvro)value$; break;
-    case 5: speed = (java.lang.Double)value$; break;
+    case 5: speed = (java.math.BigDecimal)value$; break;
     case 6: timestampEpoch = (java.lang.Integer)value$; break;
     case 7: vehicleType = (java.lang.CharSequence)value$; break;
+    case 8: transportMode = (java.lang.CharSequence)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -183,7 +188,7 @@ static {
    * Gets the value of the 'direction' field.
    * @return The value of the 'direction' field.
    */
-  public int getDirection() {
+  public java.math.BigDecimal getDirection() {
     return direction;
   }
 
@@ -192,7 +197,7 @@ static {
    * Sets the value of the 'direction' field.
    * @param value the value to set.
    */
-  public void setDirection(int value) {
+  public void setDirection(java.math.BigDecimal value) {
     this.direction = value;
   }
 
@@ -234,7 +239,7 @@ static {
    * Gets the value of the 'speed' field.
    * @return The value of the 'speed' field.
    */
-  public double getSpeed() {
+  public java.math.BigDecimal getSpeed() {
     return speed;
   }
 
@@ -243,7 +248,7 @@ static {
    * Sets the value of the 'speed' field.
    * @param value the value to set.
    */
-  public void setSpeed(double value) {
+  public void setSpeed(java.math.BigDecimal value) {
     this.speed = value;
   }
 
@@ -279,6 +284,23 @@ static {
    */
   public void setVehicleType(java.lang.CharSequence value) {
     this.vehicleType = value;
+  }
+
+  /**
+   * Gets the value of the 'transportMode' field.
+   * @return The value of the 'transportMode' field.
+   */
+  public java.lang.CharSequence getTransportMode() {
+    return transportMode;
+  }
+
+
+  /**
+   * Sets the value of the 'transportMode' field.
+   * @param value the value to set.
+   */
+  public void setTransportMode(java.lang.CharSequence value) {
+    this.transportMode = value;
   }
 
   /**
@@ -323,13 +345,14 @@ static {
 
     private java.lang.CharSequence accuracy;
     private java.lang.CharSequence activityType;
-    private int direction;
+    private java.math.BigDecimal direction;
     private java.lang.CharSequence id;
     private com.datawhisperers.restfulexample.avromodel.PositionAvro position;
     private com.datawhisperers.restfulexample.avromodel.PositionAvro.Builder positionBuilder;
-    private double speed;
+    private java.math.BigDecimal speed;
     private java.lang.Integer timestampEpoch;
     private java.lang.CharSequence vehicleType;
+    private java.lang.CharSequence transportMode;
 
     /** Creates a new Builder */
     private Builder() {
@@ -377,6 +400,10 @@ static {
         this.vehicleType = data().deepCopy(fields()[7].schema(), other.vehicleType);
         fieldSetFlags()[7] = other.fieldSetFlags()[7];
       }
+      if (isValidValue(fields()[8], other.transportMode)) {
+        this.transportMode = data().deepCopy(fields()[8].schema(), other.transportMode);
+        fieldSetFlags()[8] = other.fieldSetFlags()[8];
+      }
     }
 
     /**
@@ -417,6 +444,10 @@ static {
       if (isValidValue(fields()[7], other.vehicleType)) {
         this.vehicleType = data().deepCopy(fields()[7].schema(), other.vehicleType);
         fieldSetFlags()[7] = true;
+      }
+      if (isValidValue(fields()[8], other.transportMode)) {
+        this.transportMode = data().deepCopy(fields()[8].schema(), other.transportMode);
+        fieldSetFlags()[8] = true;
       }
     }
 
@@ -504,7 +535,7 @@ static {
       * Gets the value of the 'direction' field.
       * @return The value.
       */
-    public int getDirection() {
+    public java.math.BigDecimal getDirection() {
       return direction;
     }
 
@@ -514,7 +545,7 @@ static {
       * @param value The value of 'direction'.
       * @return This builder.
       */
-    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder setDirection(int value) {
+    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder setDirection(java.math.BigDecimal value) {
       validate(fields()[2], value);
       this.direction = value;
       fieldSetFlags()[2] = true;
@@ -535,6 +566,7 @@ static {
       * @return This builder.
       */
     public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder clearDirection() {
+      direction = null;
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -658,7 +690,7 @@ static {
       * Gets the value of the 'speed' field.
       * @return The value.
       */
-    public double getSpeed() {
+    public java.math.BigDecimal getSpeed() {
       return speed;
     }
 
@@ -668,7 +700,7 @@ static {
       * @param value The value of 'speed'.
       * @return This builder.
       */
-    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder setSpeed(double value) {
+    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder setSpeed(java.math.BigDecimal value) {
       validate(fields()[5], value);
       this.speed = value;
       fieldSetFlags()[5] = true;
@@ -689,6 +721,7 @@ static {
       * @return This builder.
       */
     public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder clearSpeed() {
+      speed = null;
       fieldSetFlags()[5] = false;
       return this;
     }
@@ -773,6 +806,46 @@ static {
       return this;
     }
 
+    /**
+      * Gets the value of the 'transportMode' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getTransportMode() {
+      return transportMode;
+    }
+
+
+    /**
+      * Sets the value of the 'transportMode' field.
+      * @param value The value of 'transportMode'.
+      * @return This builder.
+      */
+    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder setTransportMode(java.lang.CharSequence value) {
+      validate(fields()[8], value);
+      this.transportMode = value;
+      fieldSetFlags()[8] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'transportMode' field has been set.
+      * @return True if the 'transportMode' field has been set, false otherwise.
+      */
+    public boolean hasTransportMode() {
+      return fieldSetFlags()[8];
+    }
+
+
+    /**
+      * Clears the value of the 'transportMode' field.
+      * @return This builder.
+      */
+    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder clearTransportMode() {
+      transportMode = null;
+      fieldSetFlags()[8] = false;
+      return this;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public OEMVehicleDataAvro build() {
@@ -780,7 +853,7 @@ static {
         OEMVehicleDataAvro record = new OEMVehicleDataAvro();
         record.accuracy = fieldSetFlags()[0] ? this.accuracy : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.activityType = fieldSetFlags()[1] ? this.activityType : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.direction = fieldSetFlags()[2] ? this.direction : (java.lang.Integer) defaultValue(fields()[2]);
+        record.direction = fieldSetFlags()[2] ? this.direction : (java.math.BigDecimal) defaultValue(fields()[2]);
         record.id = fieldSetFlags()[3] ? this.id : (java.lang.CharSequence) defaultValue(fields()[3]);
         if (positionBuilder != null) {
           try {
@@ -792,9 +865,10 @@ static {
         } else {
           record.position = fieldSetFlags()[4] ? this.position : (com.datawhisperers.restfulexample.avromodel.PositionAvro) defaultValue(fields()[4]);
         }
-        record.speed = fieldSetFlags()[5] ? this.speed : (java.lang.Double) defaultValue(fields()[5]);
+        record.speed = fieldSetFlags()[5] ? this.speed : (java.math.BigDecimal) defaultValue(fields()[5]);
         record.timestampEpoch = fieldSetFlags()[6] ? this.timestampEpoch : (java.lang.Integer) defaultValue(fields()[6]);
         record.vehicleType = fieldSetFlags()[7] ? this.vehicleType : (java.lang.CharSequence) defaultValue(fields()[7]);
+        record.transportMode = fieldSetFlags()[8] ? this.transportMode : (java.lang.CharSequence) defaultValue(fields()[8]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -843,7 +917,13 @@ static {
       out.writeString(this.activityType);
     }
 
-    out.writeInt(this.direction);
+    if (this.direction == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeString(this.direction.toString());
+    }
 
     if (this.id == null) {
       out.writeIndex(0);
@@ -861,7 +941,13 @@ static {
       this.position.customEncode(out);
     }
 
-    out.writeDouble(this.speed);
+    if (this.speed == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeString(this.speed.toString());
+    }
 
     if (this.timestampEpoch == null) {
       out.writeIndex(0);
@@ -877,6 +963,14 @@ static {
     } else {
       out.writeIndex(1);
       out.writeString(this.vehicleType);
+    }
+
+    if (this.transportMode == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeString(this.transportMode);
     }
 
   }
@@ -900,7 +994,12 @@ static {
         this.activityType = in.readString(this.activityType instanceof Utf8 ? (Utf8)this.activityType : null);
       }
 
-      this.direction = in.readInt();
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.direction = null;
+      } else {
+        this.direction = new java.math.BigDecimal(in.readString());
+      }
 
       if (in.readIndex() != 1) {
         in.readNull();
@@ -919,7 +1018,12 @@ static {
         this.position.customDecode(in);
       }
 
-      this.speed = in.readDouble();
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.speed = null;
+      } else {
+        this.speed = new java.math.BigDecimal(in.readString());
+      }
 
       if (in.readIndex() != 1) {
         in.readNull();
@@ -935,8 +1039,15 @@ static {
         this.vehicleType = in.readString(this.vehicleType instanceof Utf8 ? (Utf8)this.vehicleType : null);
       }
 
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.transportMode = null;
+      } else {
+        this.transportMode = in.readString(this.transportMode instanceof Utf8 ? (Utf8)this.transportMode : null);
+      }
+
     } else {
-      for (int i = 0; i < 8; i++) {
+      for (int i = 0; i < 9; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           if (in.readIndex() != 1) {
@@ -957,7 +1068,12 @@ static {
           break;
 
         case 2:
-          this.direction = in.readInt();
+          if (in.readIndex() != 1) {
+            in.readNull();
+            this.direction = null;
+          } else {
+            this.direction = new java.math.BigDecimal(in.readString());
+          }
           break;
 
         case 3:
@@ -982,7 +1098,12 @@ static {
           break;
 
         case 5:
-          this.speed = in.readDouble();
+          if (in.readIndex() != 1) {
+            in.readNull();
+            this.speed = null;
+          } else {
+            this.speed = new java.math.BigDecimal(in.readString());
+          }
           break;
 
         case 6:
@@ -1000,6 +1121,15 @@ static {
             this.vehicleType = null;
           } else {
             this.vehicleType = in.readString(this.vehicleType instanceof Utf8 ? (Utf8)this.vehicleType : null);
+          }
+          break;
+
+        case 8:
+          if (in.readIndex() != 1) {
+            in.readNull();
+            this.transportMode = null;
+          } else {
+            this.transportMode = in.readString(this.transportMode instanceof Utf8 ? (Utf8)this.transportMode : null);
           }
           break;
 
