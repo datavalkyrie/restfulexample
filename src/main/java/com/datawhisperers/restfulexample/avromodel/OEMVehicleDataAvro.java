@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class OEMVehicleDataAvro extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -1613879615621649516L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"OEMVehicleDataAvro\",\"namespace\":\"com.datawhisperers.restfulexample.avromodel\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"timestampEpoch\",\"type\":{\"type\":\"record\",\"name\":\"TimestampEpochAvro\",\"fields\":[{\"name\":\"car\",\"type\":\"long\"},{\"name\":\"gps\",\"type\":\"long\"},{\"name\":\"received\",\"type\":\"long\"}]}},{\"name\":\"gps\",\"type\":{\"type\":\"record\",\"name\":\"GPSAvro\",\"fields\":[{\"name\":\"gpsRawPosition\",\"type\":{\"type\":\"record\",\"name\":\"PositionAvro\",\"fields\":[{\"name\":\"lat\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"lon\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"numberOfSatellitesAcquired\",\"type\":\"int\"}]}},{\"name\":\"gpsMapMatchPosition\",\"type\":\"PositionAvro\"}]}},{\"name\":\"speed\",\"type\":{\"type\":\"record\",\"name\":\"SpeedAvro\",\"fields\":[{\"name\":\"engine\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"wheels\",\"type\":{\"type\":\"record\",\"name\":\"WheelsAvro\",\"fields\":[{\"name\":\"frontRight\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"frontLeft\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"backRight\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"backLeft\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}}]}},{\"name\":\"gps\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"acceleration\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"deceleration\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}}]}},{\"name\":\"direction\",\"type\":{\"type\":\"record\",\"name\":\"DirectionAvro\",\"fields\":[{\"name\":\"trueNorth\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"magneticNorth\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}}]}},{\"name\":\"vehicleType\",\"type\":\"string\"},{\"name\":\"activityType\",\"type\":\"string\"},{\"name\":\"transportMode\",\"type\":\"string\"},{\"name\":\"fuleType\",\"type\":\"string\"},{\"name\":\"instrumentPanel\",\"type\":{\"type\":\"record\",\"name\":\"InstrumentPanelAvro\",\"fields\":[{\"name\":\"turnSignal\",\"type\":\"string\"},{\"name\":\"wipers\",\"type\":\"boolean\"},{\"name\":\"lights\",\"type\":\"string\"},{\"name\":\"seatBeltCount\",\"type\":\"int\"},{\"name\":\"outsideTemp\",\"type\":\"double\"}]}}]}");
+  private static final long serialVersionUID = -82195209597368156L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"OEMVehicleDataAvro\",\"namespace\":\"com.datawhisperers.restfulexample.avromodel\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"timestampEpoch\",\"type\":{\"type\":\"record\",\"name\":\"TimestampEpochAvro\",\"fields\":[{\"name\":\"car\",\"type\":\"long\"},{\"name\":\"gps\",\"type\":\"long\"},{\"name\":\"received\",\"type\":\"long\"}]}},{\"name\":\"gps\",\"type\":{\"type\":\"record\",\"name\":\"GPSAvro\",\"fields\":[{\"name\":\"gpsRawPosition\",\"type\":{\"type\":\"record\",\"name\":\"PositionAvro\",\"fields\":[{\"name\":\"lat\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"lon\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"numberOfSatellitesAcquired\",\"type\":\"int\"}]}},{\"name\":\"gpsMapMatchPosition\",\"type\":\"PositionAvro\"}]}},{\"name\":\"speed\",\"type\":{\"type\":\"record\",\"name\":\"SpeedAvro\",\"fields\":[{\"name\":\"engine\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"wheels\",\"type\":{\"type\":\"record\",\"name\":\"WheelsAvro\",\"fields\":[{\"name\":\"frontRight\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"frontLeft\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"backRight\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"backLeft\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}}]}},{\"name\":\"gps\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"acceleration\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"deceleration\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}}]}},{\"name\":\"direction\",\"type\":{\"type\":\"record\",\"name\":\"DirectionAvro\",\"fields\":[{\"name\":\"trueNorth\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"magneticNorth\",\"type\":{\"type\":\"string\",\"java-class\":\"java.math.BigDecimal\"}}]}},{\"name\":\"vehicleActivity\",\"type\":{\"type\":\"record\",\"name\":\"VehicleActivityAvro\",\"fields\":[{\"name\":\"activityType\",\"type\":\"string\"},{\"name\":\"transportMode\",\"type\":\"string\"}]}},{\"name\":\"vehicleInfo\",\"type\":{\"type\":\"record\",\"name\":\"VehicleInfoAvro\",\"fields\":[{\"name\":\"vehicleType\",\"type\":\"string\"},{\"name\":\"fuelType\",\"type\":\"string\"}]}},{\"name\":\"instrumentPanel\",\"type\":{\"type\":\"record\",\"name\":\"InstrumentPanelAvro\",\"fields\":[{\"name\":\"turnSignal\",\"type\":\"string\"},{\"name\":\"wipers\",\"type\":\"boolean\"},{\"name\":\"lights\",\"type\":\"string\"},{\"name\":\"seatBeltCount\",\"type\":\"int\"},{\"name\":\"outsideTemp\",\"type\":\"double\"}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -79,10 +79,8 @@ static {
   @Deprecated public com.datawhisperers.restfulexample.avromodel.GPSAvro gps;
   @Deprecated public com.datawhisperers.restfulexample.avromodel.SpeedAvro speed;
   @Deprecated public com.datawhisperers.restfulexample.avromodel.DirectionAvro direction;
-  @Deprecated public java.lang.CharSequence vehicleType;
-  @Deprecated public java.lang.CharSequence activityType;
-  @Deprecated public java.lang.CharSequence transportMode;
-  @Deprecated public java.lang.CharSequence fuleType;
+  @Deprecated public com.datawhisperers.restfulexample.avromodel.VehicleActivityAvro vehicleActivity;
+  @Deprecated public com.datawhisperers.restfulexample.avromodel.VehicleInfoAvro vehicleInfo;
   @Deprecated public com.datawhisperers.restfulexample.avromodel.InstrumentPanelAvro instrumentPanel;
 
   /**
@@ -99,22 +97,18 @@ static {
    * @param gps The new value for gps
    * @param speed The new value for speed
    * @param direction The new value for direction
-   * @param vehicleType The new value for vehicleType
-   * @param activityType The new value for activityType
-   * @param transportMode The new value for transportMode
-   * @param fuleType The new value for fuleType
+   * @param vehicleActivity The new value for vehicleActivity
+   * @param vehicleInfo The new value for vehicleInfo
    * @param instrumentPanel The new value for instrumentPanel
    */
-  public OEMVehicleDataAvro(java.lang.CharSequence id, com.datawhisperers.restfulexample.avromodel.TimestampEpochAvro timestampEpoch, com.datawhisperers.restfulexample.avromodel.GPSAvro gps, com.datawhisperers.restfulexample.avromodel.SpeedAvro speed, com.datawhisperers.restfulexample.avromodel.DirectionAvro direction, java.lang.CharSequence vehicleType, java.lang.CharSequence activityType, java.lang.CharSequence transportMode, java.lang.CharSequence fuleType, com.datawhisperers.restfulexample.avromodel.InstrumentPanelAvro instrumentPanel) {
+  public OEMVehicleDataAvro(java.lang.CharSequence id, com.datawhisperers.restfulexample.avromodel.TimestampEpochAvro timestampEpoch, com.datawhisperers.restfulexample.avromodel.GPSAvro gps, com.datawhisperers.restfulexample.avromodel.SpeedAvro speed, com.datawhisperers.restfulexample.avromodel.DirectionAvro direction, com.datawhisperers.restfulexample.avromodel.VehicleActivityAvro vehicleActivity, com.datawhisperers.restfulexample.avromodel.VehicleInfoAvro vehicleInfo, com.datawhisperers.restfulexample.avromodel.InstrumentPanelAvro instrumentPanel) {
     this.id = id;
     this.timestampEpoch = timestampEpoch;
     this.gps = gps;
     this.speed = speed;
     this.direction = direction;
-    this.vehicleType = vehicleType;
-    this.activityType = activityType;
-    this.transportMode = transportMode;
-    this.fuleType = fuleType;
+    this.vehicleActivity = vehicleActivity;
+    this.vehicleInfo = vehicleInfo;
     this.instrumentPanel = instrumentPanel;
   }
 
@@ -128,11 +122,9 @@ static {
     case 2: return gps;
     case 3: return speed;
     case 4: return direction;
-    case 5: return vehicleType;
-    case 6: return activityType;
-    case 7: return transportMode;
-    case 8: return fuleType;
-    case 9: return instrumentPanel;
+    case 5: return vehicleActivity;
+    case 6: return vehicleInfo;
+    case 7: return instrumentPanel;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -146,11 +138,9 @@ static {
     case 2: gps = (com.datawhisperers.restfulexample.avromodel.GPSAvro)value$; break;
     case 3: speed = (com.datawhisperers.restfulexample.avromodel.SpeedAvro)value$; break;
     case 4: direction = (com.datawhisperers.restfulexample.avromodel.DirectionAvro)value$; break;
-    case 5: vehicleType = (java.lang.CharSequence)value$; break;
-    case 6: activityType = (java.lang.CharSequence)value$; break;
-    case 7: transportMode = (java.lang.CharSequence)value$; break;
-    case 8: fuleType = (java.lang.CharSequence)value$; break;
-    case 9: instrumentPanel = (com.datawhisperers.restfulexample.avromodel.InstrumentPanelAvro)value$; break;
+    case 5: vehicleActivity = (com.datawhisperers.restfulexample.avromodel.VehicleActivityAvro)value$; break;
+    case 6: vehicleInfo = (com.datawhisperers.restfulexample.avromodel.VehicleInfoAvro)value$; break;
+    case 7: instrumentPanel = (com.datawhisperers.restfulexample.avromodel.InstrumentPanelAvro)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -241,71 +231,37 @@ static {
   }
 
   /**
-   * Gets the value of the 'vehicleType' field.
-   * @return The value of the 'vehicleType' field.
+   * Gets the value of the 'vehicleActivity' field.
+   * @return The value of the 'vehicleActivity' field.
    */
-  public java.lang.CharSequence getVehicleType() {
-    return vehicleType;
+  public com.datawhisperers.restfulexample.avromodel.VehicleActivityAvro getVehicleActivity() {
+    return vehicleActivity;
   }
 
 
   /**
-   * Sets the value of the 'vehicleType' field.
+   * Sets the value of the 'vehicleActivity' field.
    * @param value the value to set.
    */
-  public void setVehicleType(java.lang.CharSequence value) {
-    this.vehicleType = value;
+  public void setVehicleActivity(com.datawhisperers.restfulexample.avromodel.VehicleActivityAvro value) {
+    this.vehicleActivity = value;
   }
 
   /**
-   * Gets the value of the 'activityType' field.
-   * @return The value of the 'activityType' field.
+   * Gets the value of the 'vehicleInfo' field.
+   * @return The value of the 'vehicleInfo' field.
    */
-  public java.lang.CharSequence getActivityType() {
-    return activityType;
+  public com.datawhisperers.restfulexample.avromodel.VehicleInfoAvro getVehicleInfo() {
+    return vehicleInfo;
   }
 
 
   /**
-   * Sets the value of the 'activityType' field.
+   * Sets the value of the 'vehicleInfo' field.
    * @param value the value to set.
    */
-  public void setActivityType(java.lang.CharSequence value) {
-    this.activityType = value;
-  }
-
-  /**
-   * Gets the value of the 'transportMode' field.
-   * @return The value of the 'transportMode' field.
-   */
-  public java.lang.CharSequence getTransportMode() {
-    return transportMode;
-  }
-
-
-  /**
-   * Sets the value of the 'transportMode' field.
-   * @param value the value to set.
-   */
-  public void setTransportMode(java.lang.CharSequence value) {
-    this.transportMode = value;
-  }
-
-  /**
-   * Gets the value of the 'fuleType' field.
-   * @return The value of the 'fuleType' field.
-   */
-  public java.lang.CharSequence getFuleType() {
-    return fuleType;
-  }
-
-
-  /**
-   * Sets the value of the 'fuleType' field.
-   * @param value the value to set.
-   */
-  public void setFuleType(java.lang.CharSequence value) {
-    this.fuleType = value;
+  public void setVehicleInfo(com.datawhisperers.restfulexample.avromodel.VehicleInfoAvro value) {
+    this.vehicleInfo = value;
   }
 
   /**
@@ -374,10 +330,10 @@ static {
     private com.datawhisperers.restfulexample.avromodel.SpeedAvro.Builder speedBuilder;
     private com.datawhisperers.restfulexample.avromodel.DirectionAvro direction;
     private com.datawhisperers.restfulexample.avromodel.DirectionAvro.Builder directionBuilder;
-    private java.lang.CharSequence vehicleType;
-    private java.lang.CharSequence activityType;
-    private java.lang.CharSequence transportMode;
-    private java.lang.CharSequence fuleType;
+    private com.datawhisperers.restfulexample.avromodel.VehicleActivityAvro vehicleActivity;
+    private com.datawhisperers.restfulexample.avromodel.VehicleActivityAvro.Builder vehicleActivityBuilder;
+    private com.datawhisperers.restfulexample.avromodel.VehicleInfoAvro vehicleInfo;
+    private com.datawhisperers.restfulexample.avromodel.VehicleInfoAvro.Builder vehicleInfoBuilder;
     private com.datawhisperers.restfulexample.avromodel.InstrumentPanelAvro instrumentPanel;
     private com.datawhisperers.restfulexample.avromodel.InstrumentPanelAvro.Builder instrumentPanelBuilder;
 
@@ -424,25 +380,23 @@ static {
       if (other.hasDirectionBuilder()) {
         this.directionBuilder = com.datawhisperers.restfulexample.avromodel.DirectionAvro.newBuilder(other.getDirectionBuilder());
       }
-      if (isValidValue(fields()[5], other.vehicleType)) {
-        this.vehicleType = data().deepCopy(fields()[5].schema(), other.vehicleType);
+      if (isValidValue(fields()[5], other.vehicleActivity)) {
+        this.vehicleActivity = data().deepCopy(fields()[5].schema(), other.vehicleActivity);
         fieldSetFlags()[5] = other.fieldSetFlags()[5];
       }
-      if (isValidValue(fields()[6], other.activityType)) {
-        this.activityType = data().deepCopy(fields()[6].schema(), other.activityType);
+      if (other.hasVehicleActivityBuilder()) {
+        this.vehicleActivityBuilder = com.datawhisperers.restfulexample.avromodel.VehicleActivityAvro.newBuilder(other.getVehicleActivityBuilder());
+      }
+      if (isValidValue(fields()[6], other.vehicleInfo)) {
+        this.vehicleInfo = data().deepCopy(fields()[6].schema(), other.vehicleInfo);
         fieldSetFlags()[6] = other.fieldSetFlags()[6];
       }
-      if (isValidValue(fields()[7], other.transportMode)) {
-        this.transportMode = data().deepCopy(fields()[7].schema(), other.transportMode);
+      if (other.hasVehicleInfoBuilder()) {
+        this.vehicleInfoBuilder = com.datawhisperers.restfulexample.avromodel.VehicleInfoAvro.newBuilder(other.getVehicleInfoBuilder());
+      }
+      if (isValidValue(fields()[7], other.instrumentPanel)) {
+        this.instrumentPanel = data().deepCopy(fields()[7].schema(), other.instrumentPanel);
         fieldSetFlags()[7] = other.fieldSetFlags()[7];
-      }
-      if (isValidValue(fields()[8], other.fuleType)) {
-        this.fuleType = data().deepCopy(fields()[8].schema(), other.fuleType);
-        fieldSetFlags()[8] = other.fieldSetFlags()[8];
-      }
-      if (isValidValue(fields()[9], other.instrumentPanel)) {
-        this.instrumentPanel = data().deepCopy(fields()[9].schema(), other.instrumentPanel);
-        fieldSetFlags()[9] = other.fieldSetFlags()[9];
       }
       if (other.hasInstrumentPanelBuilder()) {
         this.instrumentPanelBuilder = com.datawhisperers.restfulexample.avromodel.InstrumentPanelAvro.newBuilder(other.getInstrumentPanelBuilder());
@@ -479,25 +433,19 @@ static {
         fieldSetFlags()[4] = true;
       }
       this.directionBuilder = null;
-      if (isValidValue(fields()[5], other.vehicleType)) {
-        this.vehicleType = data().deepCopy(fields()[5].schema(), other.vehicleType);
+      if (isValidValue(fields()[5], other.vehicleActivity)) {
+        this.vehicleActivity = data().deepCopy(fields()[5].schema(), other.vehicleActivity);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.activityType)) {
-        this.activityType = data().deepCopy(fields()[6].schema(), other.activityType);
+      this.vehicleActivityBuilder = null;
+      if (isValidValue(fields()[6], other.vehicleInfo)) {
+        this.vehicleInfo = data().deepCopy(fields()[6].schema(), other.vehicleInfo);
         fieldSetFlags()[6] = true;
       }
-      if (isValidValue(fields()[7], other.transportMode)) {
-        this.transportMode = data().deepCopy(fields()[7].schema(), other.transportMode);
+      this.vehicleInfoBuilder = null;
+      if (isValidValue(fields()[7], other.instrumentPanel)) {
+        this.instrumentPanel = data().deepCopy(fields()[7].schema(), other.instrumentPanel);
         fieldSetFlags()[7] = true;
-      }
-      if (isValidValue(fields()[8], other.fuleType)) {
-        this.fuleType = data().deepCopy(fields()[8].schema(), other.fuleType);
-        fieldSetFlags()[8] = true;
-      }
-      if (isValidValue(fields()[9], other.instrumentPanel)) {
-        this.instrumentPanel = data().deepCopy(fields()[9].schema(), other.instrumentPanel);
-        fieldSetFlags()[9] = true;
       }
       this.instrumentPanelBuilder = null;
     }
@@ -843,162 +791,152 @@ static {
     }
 
     /**
-      * Gets the value of the 'vehicleType' field.
+      * Gets the value of the 'vehicleActivity' field.
       * @return The value.
       */
-    public java.lang.CharSequence getVehicleType() {
-      return vehicleType;
+    public com.datawhisperers.restfulexample.avromodel.VehicleActivityAvro getVehicleActivity() {
+      return vehicleActivity;
     }
 
 
     /**
-      * Sets the value of the 'vehicleType' field.
-      * @param value The value of 'vehicleType'.
+      * Sets the value of the 'vehicleActivity' field.
+      * @param value The value of 'vehicleActivity'.
       * @return This builder.
       */
-    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder setVehicleType(java.lang.CharSequence value) {
+    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder setVehicleActivity(com.datawhisperers.restfulexample.avromodel.VehicleActivityAvro value) {
       validate(fields()[5], value);
-      this.vehicleType = value;
+      this.vehicleActivityBuilder = null;
+      this.vehicleActivity = value;
       fieldSetFlags()[5] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'vehicleType' field has been set.
-      * @return True if the 'vehicleType' field has been set, false otherwise.
+      * Checks whether the 'vehicleActivity' field has been set.
+      * @return True if the 'vehicleActivity' field has been set, false otherwise.
       */
-    public boolean hasVehicleType() {
+    public boolean hasVehicleActivity() {
       return fieldSetFlags()[5];
     }
 
+    /**
+     * Gets the Builder instance for the 'vehicleActivity' field and creates one if it doesn't exist yet.
+     * @return This builder.
+     */
+    public com.datawhisperers.restfulexample.avromodel.VehicleActivityAvro.Builder getVehicleActivityBuilder() {
+      if (vehicleActivityBuilder == null) {
+        if (hasVehicleActivity()) {
+          setVehicleActivityBuilder(com.datawhisperers.restfulexample.avromodel.VehicleActivityAvro.newBuilder(vehicleActivity));
+        } else {
+          setVehicleActivityBuilder(com.datawhisperers.restfulexample.avromodel.VehicleActivityAvro.newBuilder());
+        }
+      }
+      return vehicleActivityBuilder;
+    }
 
     /**
-      * Clears the value of the 'vehicleType' field.
+     * Sets the Builder instance for the 'vehicleActivity' field
+     * @param value The builder instance that must be set.
+     * @return This builder.
+     */
+    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder setVehicleActivityBuilder(com.datawhisperers.restfulexample.avromodel.VehicleActivityAvro.Builder value) {
+      clearVehicleActivity();
+      vehicleActivityBuilder = value;
+      return this;
+    }
+
+    /**
+     * Checks whether the 'vehicleActivity' field has an active Builder instance
+     * @return True if the 'vehicleActivity' field has an active Builder instance
+     */
+    public boolean hasVehicleActivityBuilder() {
+      return vehicleActivityBuilder != null;
+    }
+
+    /**
+      * Clears the value of the 'vehicleActivity' field.
       * @return This builder.
       */
-    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder clearVehicleType() {
-      vehicleType = null;
+    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder clearVehicleActivity() {
+      vehicleActivity = null;
+      vehicleActivityBuilder = null;
       fieldSetFlags()[5] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'activityType' field.
+      * Gets the value of the 'vehicleInfo' field.
       * @return The value.
       */
-    public java.lang.CharSequence getActivityType() {
-      return activityType;
+    public com.datawhisperers.restfulexample.avromodel.VehicleInfoAvro getVehicleInfo() {
+      return vehicleInfo;
     }
 
 
     /**
-      * Sets the value of the 'activityType' field.
-      * @param value The value of 'activityType'.
+      * Sets the value of the 'vehicleInfo' field.
+      * @param value The value of 'vehicleInfo'.
       * @return This builder.
       */
-    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder setActivityType(java.lang.CharSequence value) {
+    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder setVehicleInfo(com.datawhisperers.restfulexample.avromodel.VehicleInfoAvro value) {
       validate(fields()[6], value);
-      this.activityType = value;
+      this.vehicleInfoBuilder = null;
+      this.vehicleInfo = value;
       fieldSetFlags()[6] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'activityType' field has been set.
-      * @return True if the 'activityType' field has been set, false otherwise.
+      * Checks whether the 'vehicleInfo' field has been set.
+      * @return True if the 'vehicleInfo' field has been set, false otherwise.
       */
-    public boolean hasActivityType() {
+    public boolean hasVehicleInfo() {
       return fieldSetFlags()[6];
     }
 
+    /**
+     * Gets the Builder instance for the 'vehicleInfo' field and creates one if it doesn't exist yet.
+     * @return This builder.
+     */
+    public com.datawhisperers.restfulexample.avromodel.VehicleInfoAvro.Builder getVehicleInfoBuilder() {
+      if (vehicleInfoBuilder == null) {
+        if (hasVehicleInfo()) {
+          setVehicleInfoBuilder(com.datawhisperers.restfulexample.avromodel.VehicleInfoAvro.newBuilder(vehicleInfo));
+        } else {
+          setVehicleInfoBuilder(com.datawhisperers.restfulexample.avromodel.VehicleInfoAvro.newBuilder());
+        }
+      }
+      return vehicleInfoBuilder;
+    }
 
     /**
-      * Clears the value of the 'activityType' field.
+     * Sets the Builder instance for the 'vehicleInfo' field
+     * @param value The builder instance that must be set.
+     * @return This builder.
+     */
+    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder setVehicleInfoBuilder(com.datawhisperers.restfulexample.avromodel.VehicleInfoAvro.Builder value) {
+      clearVehicleInfo();
+      vehicleInfoBuilder = value;
+      return this;
+    }
+
+    /**
+     * Checks whether the 'vehicleInfo' field has an active Builder instance
+     * @return True if the 'vehicleInfo' field has an active Builder instance
+     */
+    public boolean hasVehicleInfoBuilder() {
+      return vehicleInfoBuilder != null;
+    }
+
+    /**
+      * Clears the value of the 'vehicleInfo' field.
       * @return This builder.
       */
-    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder clearActivityType() {
-      activityType = null;
+    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder clearVehicleInfo() {
+      vehicleInfo = null;
+      vehicleInfoBuilder = null;
       fieldSetFlags()[6] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'transportMode' field.
-      * @return The value.
-      */
-    public java.lang.CharSequence getTransportMode() {
-      return transportMode;
-    }
-
-
-    /**
-      * Sets the value of the 'transportMode' field.
-      * @param value The value of 'transportMode'.
-      * @return This builder.
-      */
-    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder setTransportMode(java.lang.CharSequence value) {
-      validate(fields()[7], value);
-      this.transportMode = value;
-      fieldSetFlags()[7] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'transportMode' field has been set.
-      * @return True if the 'transportMode' field has been set, false otherwise.
-      */
-    public boolean hasTransportMode() {
-      return fieldSetFlags()[7];
-    }
-
-
-    /**
-      * Clears the value of the 'transportMode' field.
-      * @return This builder.
-      */
-    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder clearTransportMode() {
-      transportMode = null;
-      fieldSetFlags()[7] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'fuleType' field.
-      * @return The value.
-      */
-    public java.lang.CharSequence getFuleType() {
-      return fuleType;
-    }
-
-
-    /**
-      * Sets the value of the 'fuleType' field.
-      * @param value The value of 'fuleType'.
-      * @return This builder.
-      */
-    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder setFuleType(java.lang.CharSequence value) {
-      validate(fields()[8], value);
-      this.fuleType = value;
-      fieldSetFlags()[8] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'fuleType' field has been set.
-      * @return True if the 'fuleType' field has been set, false otherwise.
-      */
-    public boolean hasFuleType() {
-      return fieldSetFlags()[8];
-    }
-
-
-    /**
-      * Clears the value of the 'fuleType' field.
-      * @return This builder.
-      */
-    public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder clearFuleType() {
-      fuleType = null;
-      fieldSetFlags()[8] = false;
       return this;
     }
 
@@ -1017,10 +955,10 @@ static {
       * @return This builder.
       */
     public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder setInstrumentPanel(com.datawhisperers.restfulexample.avromodel.InstrumentPanelAvro value) {
-      validate(fields()[9], value);
+      validate(fields()[7], value);
       this.instrumentPanelBuilder = null;
       this.instrumentPanel = value;
-      fieldSetFlags()[9] = true;
+      fieldSetFlags()[7] = true;
       return this;
     }
 
@@ -1029,7 +967,7 @@ static {
       * @return True if the 'instrumentPanel' field has been set, false otherwise.
       */
     public boolean hasInstrumentPanel() {
-      return fieldSetFlags()[9];
+      return fieldSetFlags()[7];
     }
 
     /**
@@ -1073,7 +1011,7 @@ static {
     public com.datawhisperers.restfulexample.avromodel.OEMVehicleDataAvro.Builder clearInstrumentPanel() {
       instrumentPanel = null;
       instrumentPanelBuilder = null;
-      fieldSetFlags()[9] = false;
+      fieldSetFlags()[7] = false;
       return this;
     }
 
@@ -1123,10 +1061,26 @@ static {
         } else {
           record.direction = fieldSetFlags()[4] ? this.direction : (com.datawhisperers.restfulexample.avromodel.DirectionAvro) defaultValue(fields()[4]);
         }
-        record.vehicleType = fieldSetFlags()[5] ? this.vehicleType : (java.lang.CharSequence) defaultValue(fields()[5]);
-        record.activityType = fieldSetFlags()[6] ? this.activityType : (java.lang.CharSequence) defaultValue(fields()[6]);
-        record.transportMode = fieldSetFlags()[7] ? this.transportMode : (java.lang.CharSequence) defaultValue(fields()[7]);
-        record.fuleType = fieldSetFlags()[8] ? this.fuleType : (java.lang.CharSequence) defaultValue(fields()[8]);
+        if (vehicleActivityBuilder != null) {
+          try {
+            record.vehicleActivity = this.vehicleActivityBuilder.build();
+          } catch (org.apache.avro.AvroMissingFieldException e) {
+            e.addParentField(record.getSchema().getField("vehicleActivity"));
+            throw e;
+          }
+        } else {
+          record.vehicleActivity = fieldSetFlags()[5] ? this.vehicleActivity : (com.datawhisperers.restfulexample.avromodel.VehicleActivityAvro) defaultValue(fields()[5]);
+        }
+        if (vehicleInfoBuilder != null) {
+          try {
+            record.vehicleInfo = this.vehicleInfoBuilder.build();
+          } catch (org.apache.avro.AvroMissingFieldException e) {
+            e.addParentField(record.getSchema().getField("vehicleInfo"));
+            throw e;
+          }
+        } else {
+          record.vehicleInfo = fieldSetFlags()[6] ? this.vehicleInfo : (com.datawhisperers.restfulexample.avromodel.VehicleInfoAvro) defaultValue(fields()[6]);
+        }
         if (instrumentPanelBuilder != null) {
           try {
             record.instrumentPanel = this.instrumentPanelBuilder.build();
@@ -1135,7 +1089,7 @@ static {
             throw e;
           }
         } else {
-          record.instrumentPanel = fieldSetFlags()[9] ? this.instrumentPanel : (com.datawhisperers.restfulexample.avromodel.InstrumentPanelAvro) defaultValue(fields()[9]);
+          record.instrumentPanel = fieldSetFlags()[7] ? this.instrumentPanel : (com.datawhisperers.restfulexample.avromodel.InstrumentPanelAvro) defaultValue(fields()[7]);
         }
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
@@ -1179,13 +1133,9 @@ static {
 
     this.direction.customEncode(out);
 
-    out.writeString(this.vehicleType);
+    this.vehicleActivity.customEncode(out);
 
-    out.writeString(this.activityType);
-
-    out.writeString(this.transportMode);
-
-    out.writeString(this.fuleType);
+    this.vehicleInfo.customEncode(out);
 
     this.instrumentPanel.customEncode(out);
 
@@ -1218,13 +1168,15 @@ static {
       }
       this.direction.customDecode(in);
 
-      this.vehicleType = in.readString(this.vehicleType instanceof Utf8 ? (Utf8)this.vehicleType : null);
+      if (this.vehicleActivity == null) {
+        this.vehicleActivity = new com.datawhisperers.restfulexample.avromodel.VehicleActivityAvro();
+      }
+      this.vehicleActivity.customDecode(in);
 
-      this.activityType = in.readString(this.activityType instanceof Utf8 ? (Utf8)this.activityType : null);
-
-      this.transportMode = in.readString(this.transportMode instanceof Utf8 ? (Utf8)this.transportMode : null);
-
-      this.fuleType = in.readString(this.fuleType instanceof Utf8 ? (Utf8)this.fuleType : null);
+      if (this.vehicleInfo == null) {
+        this.vehicleInfo = new com.datawhisperers.restfulexample.avromodel.VehicleInfoAvro();
+      }
+      this.vehicleInfo.customDecode(in);
 
       if (this.instrumentPanel == null) {
         this.instrumentPanel = new com.datawhisperers.restfulexample.avromodel.InstrumentPanelAvro();
@@ -1232,7 +1184,7 @@ static {
       this.instrumentPanel.customDecode(in);
 
     } else {
-      for (int i = 0; i < 10; i++) {
+      for (int i = 0; i < 8; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.id = in.readString(this.id instanceof Utf8 ? (Utf8)this.id : null);
@@ -1267,22 +1219,20 @@ static {
           break;
 
         case 5:
-          this.vehicleType = in.readString(this.vehicleType instanceof Utf8 ? (Utf8)this.vehicleType : null);
+          if (this.vehicleActivity == null) {
+            this.vehicleActivity = new com.datawhisperers.restfulexample.avromodel.VehicleActivityAvro();
+          }
+          this.vehicleActivity.customDecode(in);
           break;
 
         case 6:
-          this.activityType = in.readString(this.activityType instanceof Utf8 ? (Utf8)this.activityType : null);
+          if (this.vehicleInfo == null) {
+            this.vehicleInfo = new com.datawhisperers.restfulexample.avromodel.VehicleInfoAvro();
+          }
+          this.vehicleInfo.customDecode(in);
           break;
 
         case 7:
-          this.transportMode = in.readString(this.transportMode instanceof Utf8 ? (Utf8)this.transportMode : null);
-          break;
-
-        case 8:
-          this.fuleType = in.readString(this.fuleType instanceof Utf8 ? (Utf8)this.fuleType : null);
-          break;
-
-        case 9:
           if (this.instrumentPanel == null) {
             this.instrumentPanel = new com.datawhisperers.restfulexample.avromodel.InstrumentPanelAvro();
           }

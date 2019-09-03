@@ -18,11 +18,9 @@ public class OEMVehicleData {
     private GPS gps;
     private Speed speed;
     private Direction direction;
-    private String vehicleType;
-    private String activityType;
-    private String transportMode;
+    private VehicleActivity vehicleActivity;
     private InstrumentPanel instrumentPanel;
-    private String fuleType;
+    private VehicleInfo vehicleInfo;
 
     public String getId() {
         return id;
@@ -64,30 +62,6 @@ public class OEMVehicleData {
         this.direction = direction;
     }
 
-    public String getVehicleType() {
-        return vehicleType;
-    }
-
-    public void setVehicleType(String vehicleType) {
-        this.vehicleType = vehicleType;
-    }
-
-    public String getActivityType() {
-        return activityType;
-    }
-
-    public void setActivityType(String activityType) {
-        this.activityType = activityType;
-    }
-
-    public String getTransportMode() {
-        return transportMode;
-    }
-
-    public void setTransportMode(String transportMode) {
-        this.transportMode = transportMode;
-    }
-
     public InstrumentPanel getInstrumentPanel() {
         return instrumentPanel;
     }
@@ -96,17 +70,25 @@ public class OEMVehicleData {
         this.instrumentPanel = instrumentPanel;
     }
 
-    public String getFuleType() {
-        return fuleType;
+    public VehicleActivity getVehicleActivity() {
+        return vehicleActivity;
     }
 
-    public void setFuleType(String fuleType) {
-        this.fuleType = fuleType;
+    public void setVehicleActivity(VehicleActivity vehicleActivity) {
+        this.vehicleActivity = vehicleActivity;
+    }
+
+    public VehicleInfo getVehicleInfo() {
+        return vehicleInfo;
+    }
+
+    public void setVehicleInfo(VehicleInfo vehicleInfo) {
+        this.vehicleInfo = vehicleInfo;
     }
 
     @Override
     public String toString() {
-        return "OEMVehicleData{" + "id=" + id + ", timestampEpoch=" + timestampEpoch + ", gps=" + gps + ", speed=" + speed + ", direction=" + direction + ", vehicleType=" + vehicleType + ", activityType=" + activityType + ", transportMode=" + transportMode + ", instrumentPanel=" + instrumentPanel + ", fuleType=" + fuleType + '}';
+        return "OEMVehicleData{" + "id=" + id + ", timestampEpoch=" + timestampEpoch + ", gps=" + gps + ", speed=" + speed + ", direction=" + direction + ", vehicleActivity=" + vehicleActivity + ", instrumentPanel=" + instrumentPanel + ", vehicleInfo=" + vehicleInfo + '}';
     }
 
 }

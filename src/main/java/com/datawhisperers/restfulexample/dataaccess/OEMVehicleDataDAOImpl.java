@@ -21,7 +21,7 @@ public class OEMVehicleDataDAOImpl implements OEMVehicleDataDAO {
                 + " activitytype,"
                 + " magneticnorth,"
                 + " truenorth,"
-                + " fuletype,"
+                + " fueltype,"
                 + " gps_map_match_lat,"
                 + " gps_map_match_lon,"
                 + " gps_map_match_sats_acq,"
@@ -84,10 +84,10 @@ public class OEMVehicleDataDAOImpl implements OEMVehicleDataDAO {
         //String sql = "INSERT INTO oem_vehicle_data (id) VALUES (?)";
         jdbcTemplate.update(addOEMVehicleDataSql,
                 oemVehicleData.getId(),
-                oemVehicleData.getActivityType(),
+                oemVehicleData.getVehicleActivity().getActivityType(),
                 oemVehicleData.getDirection().getMagneticNorth(),
                 oemVehicleData.getDirection().getTrueNorth(),
-                oemVehicleData.getFuleType(),
+                oemVehicleData.getVehicleInfo().getFuelType(),
                 oemVehicleData.getGps().getGpsMapMatchPosition().getLat(),
                 oemVehicleData.getGps().getGpsMapMatchPosition().getLon(),
                 oemVehicleData.getGps().getGpsMapMatchPosition().getNumberOfSatellitesAcquired(),
@@ -107,11 +107,11 @@ public class OEMVehicleDataDAOImpl implements OEMVehicleDataDAO {
                 oemVehicleData.getSpeed().getWheels().getBackRight(),
                 oemVehicleData.getSpeed().getWheels().getFrontLeft(),
                 oemVehicleData.getSpeed().getWheels().getFrontRight(),
-                oemVehicleData.getTimestampEpoch().getCar(),
+                oemVehicleData.getTimestampEpoch().getVehicle(),
                 oemVehicleData.getTimestampEpoch().getGps(),
                 oemVehicleData.getTimestampEpoch().getReceived(),
-                oemVehicleData.getTransportMode(),
-                oemVehicleData.getVehicleType());
+                oemVehicleData.getVehicleActivity().getTransportMode(),
+                oemVehicleData.getVehicleInfo().getVehicleType());
         
     }
 

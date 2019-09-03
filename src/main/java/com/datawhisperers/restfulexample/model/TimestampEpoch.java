@@ -11,16 +11,16 @@ package com.datawhisperers.restfulexample.model;
  */
 public class TimestampEpoch {
 
-    private Long car;
+    private Long vehicle;
     private Long gps;
     private Long received;
 
-    public Long getCar() {
-        return car;
+    public Long getVehicle() {
+        return vehicle;
     }
 
-    public void setCar(Long car) {
-        this.car = car;
+    public void setVehicle(Long vehicle) {
+        this.vehicle = vehicle;
     }
 
     public Long getGps() {
@@ -41,7 +41,7 @@ public class TimestampEpoch {
 
     @Override
     public String toString() {
-        return "TimestampEpoch{" + "car=" + car + ", gps=" + gps + ", received=" + received + '}';
+        return "TimestampEpoch{" + "vehicle=" + vehicle + ", gps=" + gps + ", received=" + received + '}';
     }
 
     

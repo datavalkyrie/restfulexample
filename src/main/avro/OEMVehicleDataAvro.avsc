@@ -135,17 +135,31 @@
       } ]
     }
   }, {
-    "name" : "vehicleType",
-    "type" : "string"
+    "name" : "vehicleActivity",
+    "type" : {
+      "type" : "record",
+      "name" : "VehicleActivityAvro",
+      "fields" : [ {
+        "name" : "activityType",
+        "type" : "string"
+      }, {
+        "name" : "transportMode",
+        "type" : "string"
+      } ]
+    }
   }, {
-    "name" : "activityType",
-    "type" : "string"
-  }, {
-    "name" : "transportMode",
-    "type" : "string"
-  }, {
-    "name" : "fuleType",
-    "type" : "string"
+    "name" : "vehicleInfo",
+    "type" : {
+      "type" : "record",
+      "name" : "VehicleInfoAvro",
+      "fields" : [ {
+        "name" : "vehicleType",
+        "type" : "string"
+      }, {
+        "name" : "fuelType",
+        "type" : "string"
+      } ]
+    }
   }, {   "name" : "instrumentPanel",
     "type" : {
       "type" : "record",
